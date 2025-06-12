@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "KeyJump",
+  "version": "0.1",
+  "description": "Jump to links with keyboard shortcuts.",
+  "permissions": ["activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "commands": {
+    "activate-keyjump": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+;"
+      },
+      "description": "Activate KeyJump"
+    }
+  }
+}
